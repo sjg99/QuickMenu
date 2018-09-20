@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quickmenumainModelStoreContainer" CdmEntityContainer="quickmenumainEntities">
+    <EntitySetMapping Name="restaurant">
+      <EntityTypeMapping TypeName="quickmenumainModel.restaurant">
+        <MappingFragment StoreEntitySet="restaurant">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="quickmenumainModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="license">
+      <EntityTypeMapping TypeName="quickmenumainModel.license">
+        <MappingFragment StoreEntitySet="license">
+          <ScalarProperty Name="last_payment" ColumnName="last_payment" />
+          <ScalarProperty Name="restaurant_name" ColumnName="restaurant_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

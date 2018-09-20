@@ -1,0 +1,12 @@
+﻿@model QuickMenu.ViewModels.ShoppingCartLoading
+
+@foreach (var x in Model.orderdetails)
+{
+    <div class="Articulo">       
+            <div class="artimage">
+                <button type="submit" style="opacity: 0;"><img src="~/Design/Plantilla/img/pizza.jpg" style="max-width: 150px;" /></button>
+            </div>
+            <p>@Model.pnames.Find(r => r.idproduct == x.idproduct).name (x @x.quantity)</p>        
+    </div>
+}
+

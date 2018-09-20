@@ -1,0 +1,31 @@
+﻿@model QuickMenu.Models.employee
+@{
+    List<string> positions = new List<string>();
+    positions.Add("Gerente");
+    positions.Add("Personal Cocina");
+    positions.Add("Camarero");
+    System.Web.Mvc.SelectList positionslist = new SelectList(positions);
+
+}
+
+<div class="contentform">
+    <h2 class="bugs">Employee</h2>
+    <label class="txtlbl">Add</label>
+</div>
+@using (Html.BeginForm("AddEmp", "Management", FormMethod.Post))
+{
+    <div class="formDomain">
+        <h2 class="titlefield">Register a employee</h2>
+        <form class="Dnsform">
+            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Write Email", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.email)
+            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Write Password", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.password)
+            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Write Name", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.name)
+            @Html.DropDownListFor(model => model.position, positionslist, new { htmlAttributes = new { @class = "domain-container select-field", @value = "Select Position", @required = "required" } })            
+        </form>
+        <button type="submit" id="Addr" class="btn-proceed">Proceed</button>
+        <div class="field-validation-error">@Html.DisplayFor(model => model.AddEError)</div>
+    </div>
+}

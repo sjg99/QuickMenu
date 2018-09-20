@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quickmenusubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="idorder" />
+    </Key>
+    <Property Name="idorder" Type="Int32" Nullable="false" />
+    <Property Name="totalprice" Type="Double" Nullable="false" />
+    <Property Name="table" Type="Int32" Nullable="false" />
+    <Property Name="paymentmethod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="orderdetail" Relationship="Self.fk_OrderDetails_Order" FromRole="order" ToRole="orderdetail" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="idproduct" />
+    </Key>
+    <Property Name="idproduct" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="details" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="orderdetail" Relationship="Self.fk_OrderDetails_Product1" FromRole="product" ToRole="orderdetail" />
+  </EntityType>
+  <EntityType Name="orderdetail">
+    <Key>
+      <PropertyRef Name="idproduct" />
+      <PropertyRef Name="quantity" />
+      <PropertyRef Name="totalprice" />
+      <PropertyRef Name="idorder" />
+    </Key>
+    <Property Name="idproduct" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="totalprice" Type="Double" Nullable="false" />
+    <Property Name="idorder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="order" Relationship="Self.fk_OrderDetails_Order" FromRole="orderdetail" ToRole="order" />
+    <NavigationProperty Name="product" Relationship="Self.fk_OrderDetails_Product1" FromRole="orderdetail" ToRole="product" />
+  </EntityType>
+  <EntityType Name="pagestyle">
+    <Key>
+      <PropertyRef Name="restaurantname" />
+      <PropertyRef Name="details" />
+    </Key>
+    <Property Name="restaurantname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="details" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_OrderDetails_Order">
+    <End Role="order" Type="Self.order" Multiplicity="1" />
+    <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="order">
+        <PropertyRef Name="idorder" />
+      </Principal>
+      <Dependent Role="orderdetail">
+        <PropertyRef Name="idorder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_OrderDetails_Product1">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="idproduct" />
+      </Principal>
+      <Dependent Role="orderdetail">
+        <PropertyRef Name="idproduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quickmenusubEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="employee" EntityType="Self.employee" />
+    <EntitySet Name="order" EntityType="Self.order" />
+    <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="orderdetail" EntityType="Self.orderdetail" />
+    <EntitySet Name="pagestyle" EntityType="Self.pagestyle" />
+    <AssociationSet Name="fk_OrderDetails_Order" Association="Self.fk_OrderDetails_Order">
+      <End Role="order" EntitySet="order" />
+      <End Role="orderdetail" EntitySet="orderdetail" />
+    </AssociationSet>
+    <AssociationSet Name="fk_OrderDetails_Product1" Association="Self.fk_OrderDetails_Product1">
+      <End Role="product" EntitySet="product" />
+      <End Role="orderdetail" EntitySet="orderdetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

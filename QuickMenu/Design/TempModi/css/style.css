@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  margin: auto;
+  text-align: center;
+}
+
+header nav .izq {
+  width: 50%;
+}
+
+header nav .izq img {
+  max-width: 180px;
+}
+
+header nav .derecha {
+  width: 50%;
+  margin: auto;
+}
+
+header nav .derecha a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 0.79em;
+  color: #528FCC;
+}
+
+main {
+  width: 100%;
+}
+
+main .contenedor {
+  width: 100%;
+  max-width: 1200px;
+  display: block;
+  margin: auto;
+}
+
+main .contenedor .title {
+  width: 100%;
+  text-align: center;
+  padding: 4em;
+}
+
+main .contenedor .title h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: #575F61;
+}
+
+main .contenedor .title p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
+  margin-top: .3em;
+  color: #6E7576;
+}
+
+main .contenedor .caja-padre {
+  display: block;
+  padding: 0 15em 0 15em;
+}
+
+main .contenedor .caja-padre .caja {
+  width: 100%;
+  display: flex;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+main .contenedor .caja-padre .caja .izq {
+  width: 30%;
+  text-align: center;
+  margin-top: 0.6em;
+}
+
+main .contenedor .caja-padre .caja .izq h3 {
+  color: #B5BABC;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+main .contenedor .caja-padre .caja .der {
+  width: 70%;
+  text-align: center;
+  display: flex;
+}
+
+main .contenedor .caja-padre .caja .der .fromu {
+  width: 50%;
+  display: block;
+}
+
+main .contenedor .caja-padre .caja .der .fromu input {
+  padding: 0.6em 0.4em 0.6em 0.4em;
+  background-color: #F5F8F9;
+  border: none;
+  border: 1px solid #E5EBEC;
+  border-radius: 2px;
+  color: #5A666D;
+  margin-top: 0.5em;
+}
+
+main .contenedor .caja-padre .caja .der .btn {
+  width: 20%;
+  max-width: 50px;
+  background-color: #528FCC;
+  margin: auto;
+  padding: 1em;
+  border-radius: 100%;
+}
+
+main .contenedor .caja-padre .caja .der .btn:hover {
+  cursor: pointer;
+}
+
+main .contenedor .caja-padre .caja .der .btn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main .contenedor .caja-padre hr {
+  opacity: 0.5;
+}
+
+main .contenedor .error {
+  width: 100%;
+  text-align: center;
+}
+
+main .contenedor .error p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 10em;
+  color: #6E7576;
+  font-weight: bold;
+}
+
+main .contenedor .error span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  color: #6E7576;
+}
+/*# sourceMappingURL=style.css.map */

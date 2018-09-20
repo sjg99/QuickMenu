@@ -1,0 +1,13 @@
+﻿@model QuickMenu.ViewModels.MailSender
+@using (Html.BeginForm("FormSender", "Login", FormMethod.Post))
+{
+    <form id="Formulario">
+        <div>
+            @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "ContactItem", @placeholder = "Email", @required = "required" } })
+            @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "ContactItem", @placeholder = "Subject", @required = "required" } })
+            @Html.TextAreaFor(model => model.Body, new { rows = "8", cols = "50", @class = "ContactItem", @placeholder = "Message", @required = "required" })
+            <input type="submit" id="Envia" class="FormEnvia" value="Send the Message">
+        </div>
+        
+    </form>
+}

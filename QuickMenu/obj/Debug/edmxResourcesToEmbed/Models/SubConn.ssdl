@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quickmenusubModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="position" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="idorder" />
+    </Key>
+    <Property Name="idorder" Type="int" Nullable="false" />
+    <Property Name="totalprice" Type="double" Nullable="false" />
+    <Property Name="table" Type="int" Nullable="false" />
+    <Property Name="paymentmethod" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="date" Type="datetime" Precision="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.quickmenusub.orderdetail' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="orderdetail">
+    <Key>
+      <PropertyRef Name="idproduct" />
+      <PropertyRef Name="quantity" />
+      <PropertyRef Name="totalprice" />
+      <PropertyRef Name="idorder" />
+    </Key>
+    <Property Name="idproduct" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="totalprice" Type="double" Nullable="false" />
+    <Property Name="idorder" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.quickmenusub.pagestyle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="pagestyle">
+    <Key>
+      <PropertyRef Name="restaurantname" />
+      <PropertyRef Name="details" />
+    </Key>
+    <Property Name="restaurantname" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="details" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="idproduct" />
+    </Key>
+    <Property Name="idproduct" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="price" Type="double" Nullable="false" />
+    <Property Name="details" Type="longtext" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_OrderDetails_Order">
+    <End Role="order" Type="Self.order" Multiplicity="1" />
+    <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="order">
+        <PropertyRef Name="idorder" />
+      </Principal>
+      <Dependent Role="orderdetail">
+        <PropertyRef Name="idorder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_OrderDetails_Product1">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="idproduct" />
+      </Principal>
+      <Dependent Role="orderdetail">
+        <PropertyRef Name="idproduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quickmenusubModelStoreContainer">
+    <EntitySet Name="employee" EntityType="Self.employee" Schema="quickmenusub" store:Type="Tables" />
+    <EntitySet Name="order" EntityType="Self.order" Schema="quickmenusub" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="quickmenusub" store:Type="Tables" />
+    <EntitySet Name="orderdetail" EntityType="Self.orderdetail" store:Type="Tables" store:Schema="quickmenusub">
+      <DefiningQuery>SELECT
+`orderdetail`.`idproduct`, 
+`orderdetail`.`quantity`, 
+`orderdetail`.`totalprice`, 
+`orderdetail`.`idorder`
+FROM `orderdetail` AS `orderdetail`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="pagestyle" EntityType="Self.pagestyle" store:Type="Tables" store:Schema="quickmenusub">
+      <DefiningQuery>SELECT
+`pagestyle`.`restaurantname`, 
+`pagestyle`.`details`
+FROM `pagestyle` AS `pagestyle`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_OrderDetails_Order" Association="Self.fk_OrderDetails_Order">
+      <End Role="order" EntitySet="order" />
+      <End Role="orderdetail" EntitySet="orderdetail" />
+    </AssociationSet>
+    <AssociationSet Name="fk_OrderDetails_Product1" Association="Self.fk_OrderDetails_Product1">
+      <End Role="product" EntitySet="product" />
+      <End Role="orderdetail" EntitySet="orderdetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

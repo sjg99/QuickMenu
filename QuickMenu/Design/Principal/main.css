@@ -1,0 +1,673 @@
+
+/*###### Default ######*/
+html,
+header,
+footer {
+  display: block
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+section {
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+}
+.ScrollUp{
+  background-image: url(img/Up.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  top: 100%;
+  left: 100%;
+  transform: translate(-70px, -70px);
+  margin: 10px;
+  display: none;
+  opacity: 0;
+}
+.ScrollUp:hover{
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.row::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+/*###### Nav bar ######*/
+
+nav {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+}
+nav .dropicon{
+  display: none;
+  font-size: 1.8em;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+nav .dropicon:hover{
+  cursor: pointer;
+}
+nav .dropLogo{
+  width: 200px;
+  height: 40px;
+  float: left;
+  background-image: url(img/Logo2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+nav .Topnav {
+  display: table;
+  float: right;
+}
+nav .Topnav li {
+  list-style-type: none;
+  display: table-cell;
+}
+nav .Topnav li a, nav .dropLogo{
+  display: block;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: lighter;
+  margin: 10px 15px 10px 15px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+nav .Topnav li a:hover {
+  color: rgb(175, 175, 175);
+}
+nav .Topnav li .LoginBoton {
+  background: #213875;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px 35px 5px 35px;
+  margin: 10px 15px 10px 15px;
+  line-height: 30px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  cursor: pointer;
+}
+
+nav .Topnav li a, nav .Topnav li .LoginBoton{
+  transition-property: margin, padding, height;
+  transition-duration: 0.3s, 0.3s, 0.3s;
+  transform-style: preserve-3d;
+}
+/*###### Home ######*/
+
+.SeccionHome{
+  display: flex;
+}
+.SeccionHome .Background{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-image: url(img/fa.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2; 
+}
+.SeccionHome .ContenedorHome{
+  margin: auto;
+  text-align: center;
+}
+.SeccionHome .ContenedorHome .TextoPrincipal{
+  font-size: 3.3em;
+  font-weight: lighter;
+  color: #fff;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+.SeccionHome .ContenedorHome .BotonLogin {
+  margin: 20px;
+}
+.SeccionHome .ContenedorHome .BotonLogin .LoginBoton2 {
+  background: #213875;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 35px 10px 35px;
+  margin: 10px 15px 10px 15px;
+  line-height: 30px;
+  border-radius: 3px;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  transition-duration: 0.4s;
+}
+/*###### Login y SignUp ######*/
+
+
+.SeccionHome .LoSiContenedor{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: hsla(0, 0%, 0%, 0.6);
+  z-index: 2;
+  display: none;
+  opacity: 0;
+}
+.SeccionHome .LoSiContenedor .Login, .SeccionHome .LoSiContenedor .SingUp{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 25%;
+  padding: 5%;
+  margin: auto;
+  background-color:	#142739;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  transform: scaleX(1)translate(-50%,-50%);
+}
+
+.SeccionHome .LoSiContenedor .lbl {
+  color: #fff;
+  width: 80%;
+  text-align: right;
+  font-size: 2.5em;
+  padding-bottom: 15px;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+.SeccionHome .LoSiContenedor .SingUp{
+  transform: scaleX(0) translate(-50%,-50%);
+}
+.SeccionHome .LoSiContenedor .Login form .ContFormLogin, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup{
+  width: 70%;
+  display: table;
+  margin: auto;
+}
+.SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginCampos, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupCampos{
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
+.SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginCampos input, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupCampos input{
+  font-size: 1em;
+  margin: 5px 0px 5px 0px;
+}
+.SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginBotones, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupBotones{
+  display: flex;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.SeccionHome .LoSiContenedor .input-container {
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  color: #666666;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginBotones button, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupBotones button{
+  width: 100%;
+  color: #fff;
+  background-color: #2fb76d;
+  border-radius: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: .65;
+  font-size: .95em;
+  line-height: 30px;
+  padding: 5px;
+  margin: 2% 5% 2% 5%;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  
+}
+.SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginBotones button,  .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupBotones button:hover{
+  cursor: pointer;
+}
+.field-validation-error {
+    text-align: center;
+    font-size: .875rem;
+    padding: 5%;
+    color: #f73131;
+    transition-duration: 0.3s;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+/*###### About ######*/
+
+.SeccionAbout{
+  background-color: #fff;;
+  display: flex;
+}
+.SeccionAbout .ContenedorAbout {
+  width: 100%;
+  margin: auto;
+  align-items: center;
+}
+.SeccionAbout .ContenedorAbout .Fila {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.SeccionAbout .ContenedorAbout .Fila .Columna {
+  width: 33.33%;
+}
+.SeccionAbout .ContenedorAbout .Fila .Columna .box {
+  text-align: center;
+  margin: 24px;
+  padding: 36px 24px 40px 24px;
+  border-radius: 5px;
+  background-color: #fff;
+  /*box-shadow: 0 0 0 1px rgba(0,0,0,.05),
+    0 1px 3px 0 rgba(0,0,0,.1);*/
+}
+.SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconosExtremos {
+  height: 80px;
+  width: 80px;
+  opacity: 0.7;
+  margin-top: 1.5em;
+}
+.SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconoMedio {
+  height: 60px;
+  width: 60px;
+  opacity: 0.7;
+  margin-top: 1.5em;
+}
+.SeccionAbout .ContenedorAbout .Fila .Columna .box .ParrafoAbout {
+  line-height: 1.85714286em;
+  font-size: 15px;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  color: #8c98b7;
+  margin-top: 2.5em;
+  margin-bottom: 1.85714286em;
+}
+.SeccionAbout .ContenedorAbout .Fila .Columna .box .LearnMore {
+  font-size: 0.7em;
+  color: #4a90e2;
+  font-weight: 700;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  text-decoration: none;
+}
+/*###### Contact ######*/
+
+.SeccionContact{
+  background-color: #e9f6f9;
+  /*display: flex;*/
+}
+/*.SeccionContact .ContenedorContact{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}*/
+div.left-side {
+  margin-left: 20%; 
+}
+div.right-side {
+  margin-right: 15%;
+}
+.SeccionContact .ContenedorContact .ContactIcon{
+  width: 300px;
+  height: 60px;
+  margin: auto;
+}
+
+.SeccionContact .ContenedorContact .ContactIcon Label {
+  color: #213875;  
+  font-weight: 500;
+  font-family: 'Oswald','Raleway','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 50px;
+  line-height: 32px;
+}
+
+.SeccionContact .ContenedorContact .ContactIcon hr{
+  margin-top: 50px;
+}
+
+.SeccionContact .ContenedorContact .ContactIcon .ContactText{
+  margin-top: 20px;
+  font-family: 'Oswald','Raleway','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  color: #8c98b7;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.SeccionContact .ContenedorContact .ContactForm{
+  width: 600px;
+}
+
+.SeccionContact .ContenedorContact .ContactForm form div{
+  /*display: flex;*/
+  flex-direction: column;
+}
+
+.SeccionContact .ContenedorContact .ContactForm form div .ContactItem{
+  width: 50%;
+  margin: 3%;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  color: #666666;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  resize: none;
+}
+
+
+.SeccionContact .ContenedorContact .ContactForm form .FormEnvia{
+  float: left;
+  padding: 10px 30px 10px 30px;
+  margin: 3%;
+  background-color: #213875;
+  color: #fff;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  border-radius: 3px;
+  padding: 10px 35px 10px 35px;
+}
+
+.map-sec {
+  background: #000;
+  width: 35%;
+  height: 60%;
+  border-radius: 3px;
+}
+
+/*###### Footer ######*/
+
+footer.foot-er {
+  background-color: #213875;
+  text-align: center;
+  padding: 2%;
+  /*padding-left: 50%;*/
+}
+
+footer.foot-er label {
+  color: #fff;
+  font-size: 45px;
+  font-weight: bold;
+  font-family: 'Futura PT Multilingual W01',Futura,'Trebuchet MS',Arial,sans-serif;
+}
+
+footer.foot-er p.phrase {
+  color: #fff;
+  font-size: 12px;
+  line-height: 3.2;
+  padding-bottom: 38px;
+  text-transform: uppercase;
+}
+hr.Line {
+  opacity: 0.34;
+}
+
+footer.foot-er p.rights {
+  color: #fff;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 7;
+  text-align: left;
+}
+
+/*###### Mobile ######*/
+
+@media screen and (min-width: 1920px) {
+  /*###### Contact ######*/
+  .SeccionContact .ContenedorContact .ContactIcon{
+    width: 400px;
+    height: 400px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm{
+    width: 800px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm form div .ContactItem{
+    width: 80%;
+  }
+  /*###### About ######*/
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ParrafoAbout {
+    line-height: 1.7em;
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconosExtremos {
+    height: 120px;
+    width: 120px;
+    
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconoMedio {
+    height: 80px;
+    width: 80px;
+  }
+}
+@media screen and (max-width: 1919px) {
+  /*###### Contact ######*/
+  .SeccionContact .ContenedorContact .ContactIcon{
+    width: 340px;
+    height: 60px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm{
+    width: 700px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm form div .ContactItem{
+    width: 80%;
+  }
+}
+
+
+
+@media screen and (max-width: 1366px) {
+    /*###### Contact ######*/
+  .SeccionContact .ContenedorContact .ContactIcon{
+    width: 270px;
+    height: 60px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm{
+    width: 500px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm form div .ContactItem{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /*###### Contact ######*/
+  .SeccionContact .ContenedorContact .ContactIcon{
+    width: 240px;
+    height: 60px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm{
+    width: 360px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm form div .ContactItem{
+    width: 80%;
+  }
+  /*###### Login y SingUp ######*/
+  .SeccionHome .LoSiContenedor .Login, .SeccionHome .LoSiContenedor .SingUp{
+    width: 50%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin,  .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup{
+    width: 70%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginBotones button, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupBotones button{
+    margin: 2%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin .ResultadoLogin, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .ResultadoSingup{
+    font-size: 1em;
+    padding: 10px;
+  }
+   /*###### About ######*/
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box {
+    margin: 10px;
+    padding: 10px 8px 10px 8px;
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ParrafoAbout {
+    line-height: 1.7em;
+    font-size: 0.8em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /*###### Contact ######*/
+  .SeccionContact .ContenedorContact .ContactIcon{
+    width: 200px;
+    height: 60px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm{
+    width: 330px;
+  }
+  .SeccionContact .ContenedorContact .ContactForm form div .ContactItem{
+    width: 70%;
+  }
+  /*###### Login y SingUp ######*/
+  .SeccionHome .LoSiContenedor .Login, .SeccionHome .LoSiContenedor .SingUp{
+    width: 55%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin,  .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup{
+    width: 80%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginBotones button, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupBotones button{
+    margin: 2%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin .ResultadoLogin, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .ResultadoSingup{
+    font-size: 1em;
+    padding: 10px;
+  }
+   /*###### About ######*/
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box {
+    margin: 10px;
+    padding: 10px 8px 10px 8px;
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ParrafoAbout {
+    line-height: 1.7em;
+    font-size: 0.8em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+  /*###### Nav bar ######*/
+  nav{
+    position: absolute;
+    background-color:white;
+    z-index: 2;
+  }
+  nav .dropicon{
+    display: block;
+    float: right;
+  }
+  nav .Topnav{
+    float: left;
+    width: 100%;
+    
+  }
+  nav .Topnav li {
+    display: inline;
+  }
+  nav .Topnav li a{
+    text-align: left;
+  }
+  nav .Topnav li a, nav .Topnav li .LoginBoton{
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    height: 0;
+    
+  }
+  nav .Topnav li a, nav .dropicon{
+    color: rgb(175, 175, 175);
+  }
+  /*###### Home ######*/
+  nav .dropLogo{
+    background-image: url(img/Logo.png);
+  }
+  /*###### Login y SingUp ######*/
+  .SeccionHome .LoSiContenedor .Login, .SeccionHome .LoSiContenedor .SingUp{
+    width: 70%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin,  .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup{
+    width: 90%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginBotones button, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupBotones button{
+    margin: 2%;
+  }
+  .SeccionHome .LoSiContenedor .Login form .ContFormLogin .ResultadoLogin, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .ResultadoSingup{
+    font-size: 1em;
+    padding: 10px;
+  }
+  /*###### Contact ######*/
+  .SeccionContact .ContenedorContact {
+      display: block;
+  }
+  .SeccionContact .ContenedorContact .ContactIcon{
+    display: none;
+  }
+  .SeccionContact .ContenedorContact .ContactForm form div .ContactItem{
+    width: 100%;
+  }
+  .SeccionContact .ContenedorContact .ContactForm form .FormEnvia{
+    padding: 10px 30px 10px 30px;
+    width: 100%;
+    float: none;
+  }
+  /*###### About ######*/
+  .SeccionAbout .ContenedorAbout .Fila {
+    flex-direction: column;
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna {
+    width: 100%;
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box {
+    margin: 10px;
+    padding: 5px 4px 5px 4px;
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ParrafoAbout {
+    line-height: 1.5em;
+    font-size: 0.6em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconosExtremos {
+    height: 12%;
+    width: 12%;
+    margin-top: 0em;
+    
+  }
+  .SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconoMedio {
+    height: 8%;
+    width: 8%;
+    margin-top: 0em;
+  }
+}

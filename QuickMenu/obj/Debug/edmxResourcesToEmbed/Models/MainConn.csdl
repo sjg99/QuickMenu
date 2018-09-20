@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quickmenumainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="restaurant">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="license" Relationship="Self.fk_License_Restaurant1" FromRole="restaurant" ToRole="license" />
+    <NavigationProperty Name="user" Relationship="Self.fk_Restaurant_User" FromRole="restaurant" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="restaurant" Relationship="Self.fk_Restaurant_User" FromRole="user" ToRole="restaurant" />
+  </EntityType>
+  <EntityType Name="license">
+    <Key>
+      <PropertyRef Name="last_payment" />
+      <PropertyRef Name="restaurant_name" />
+    </Key>
+    <Property Name="last_payment" Type="DateTime" Nullable="false" />
+    <Property Name="restaurant_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="restaurant" Relationship="Self.fk_License_Restaurant1" FromRole="license" ToRole="restaurant" />
+  </EntityType>
+  <Association Name="fk_License_Restaurant1">
+    <End Role="restaurant" Type="Self.restaurant" Multiplicity="1" />
+    <End Role="license" Type="Self.license" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="restaurant">
+        <PropertyRef Name="name" />
+      </Principal>
+      <Dependent Role="license">
+        <PropertyRef Name="restaurant_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Restaurant_User">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="restaurant" Type="Self.restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="restaurant">
+        <PropertyRef Name="user_email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quickmenumainEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="restaurant" EntityType="Self.restaurant" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="license" EntityType="Self.license" />
+    <AssociationSet Name="fk_License_Restaurant1" Association="Self.fk_License_Restaurant1">
+      <End Role="restaurant" EntitySet="restaurant" />
+      <End Role="license" EntitySet="license" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Restaurant_User" Association="Self.fk_Restaurant_User">
+      <End Role="user" EntitySet="user" />
+      <End Role="restaurant" EntitySet="restaurant" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

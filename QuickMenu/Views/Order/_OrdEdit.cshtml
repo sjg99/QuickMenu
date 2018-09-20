@@ -1,0 +1,31 @@
+﻿@model QuickMenu.Models.order
+@{
+    List<string> status = new List<string>();
+    status.Add("Unstarted");
+    status.Add("In Process");
+    status.Add("Finished");
+    status.Add("Delivered");
+    System.Web.Mvc.SelectList statuslist = new SelectList(status);
+
+}
+
+<div class="contentform">
+    <h2 class="bugs">Order</h2>
+    <label class="txtlbl">Edit</label>
+</div>
+@using (Html.BeginForm("UpdateOrd", "Order", FormMethod.Post))
+{
+    <div class="formDomain">
+        <h2 class="titlefield">Edit Order #@Model.idorder</h2>
+        <form class="Dnsform">
+            @Html.HiddenFor(model => model.idorder)
+            @Html.HiddenFor(model => model.table)            
+            @Html.HiddenFor(model => model.paymentmethod)
+            @Html.HiddenFor(model => model.totalprice)
+            @Html.DropDownListFor(model => model.status, statuslist, new { htmlAttributes = new { @class = "domain-container select-field", @value = "Select Position", @required = "required" } })
+
+        </form>
+        <button type="submit" id="Addr" class="btn-proceed">Proceed</button>
+        <div class="field-validation-error">@Html.DisplayFor(model => model.AddOError)</div>
+    </div>
+}

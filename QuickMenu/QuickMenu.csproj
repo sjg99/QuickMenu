@@ -1,0 +1,354 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{069C41C8-8FD6-4AB7-B38E-2A219DCEFFCE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickMenu</RootNamespace>
+    <AssemblyName>QuickMenu</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Design\Control\img\card1.jpg" />
+    <Content Include="Design\Control\img\delete.png" />
+    <Content Include="Design\Control\img\delete2.png" />
+    <Content Include="Design\Control\img\edit.png" />
+    <Content Include="Design\Control\img\food.png" />
+    <Content Include="Design\Control\img\upload.png" />
+    <Content Include="Design\Control\index.html" />
+    <Content Include="Design\Control\jquery-3.3.1.min.js" />
+    <Content Include="Design\Control\main.css" />
+    <Content Include="Design\Control\responsive.js" />
+    <Content Include="Design\ModuloGestion\AddWindow.js" />
+    <Content Include="Design\ModuloGestion\css\main.css" />
+    <Content Include="Design\ModuloGestion\img\add.png" />
+    <Content Include="Design\ModuloGestion\img\bag.png" />
+    <Content Include="Design\ModuloGestion\img\cart.png" />
+    <Content Include="Design\ModuloGestion\img\coffee.png" />
+    <Content Include="Design\ModuloGestion\img\employee.png" />
+    <Content Include="Design\ModuloGestion\img\order.png" />
+    <Content Include="Design\ModuloGestion\img\store.png" />
+    <Content Include="Design\ModuloGestion\img\user.png" />
+    <Content Include="Design\ModuloGestion\index.html" />
+    <Content Include="Design\Plantilla\img\burguer.jpg" />
+    <Content Include="Design\Plantilla\img\downarrow.png" />
+    <Content Include="Design\Plantilla\img\fa.jpg" />
+    <Content Include="Design\Plantilla\img\food.jpg" />
+    <Content Include="Design\Plantilla\img\Logo.png" />
+    <Content Include="Design\Plantilla\img\Logo2.png" />
+    <Content Include="Design\Plantilla\img\pizza.jpg" />
+    <Content Include="Design\Plantilla\img\Up.png" />
+    <Content Include="Design\Plantilla\img\uparrow.png" />
+    <Content Include="Design\Plantilla\index.html" />
+    <Content Include="Design\Plantilla\jquery-3.3.1.min.js" />
+    <Content Include="Design\Plantilla\main.css" />
+    <Content Include="Design\Plantilla\responsive.js" />
+    <Content Include="Design\Principal\img\Cfg.png" />
+    <Content Include="Design\Principal\img\Clip.png" />
+    <Content Include="Design\Principal\img\fa.jpg" />
+    <Content Include="Design\Principal\img\Laptop.png" />
+    <Content Include="Design\Principal\img\Logo.png" />
+    <Content Include="Design\Principal\img\Logo2.png" />
+    <Content Include="Design\Principal\img\Up.png" />
+    <Content Include="Design\Principal\index.html" />
+    <Content Include="Design\Principal\jquery.js" />
+    <Content Include="Design\Principal\main.css" />
+    <Content Include="Design\Principal\map.js" />
+    <Content Include="Design\Principal\Re-Mobile.js" />
+    <Content Include="Design\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Design\Scripts\jquery.validate.min.js" />
+    <Content Include="Design\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Design\TempModi\css\style.css" />
+    <Content Include="Design\TempModi\img\store.png" />
+    <Content Include="Design\TempModi\index.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\MainConn.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MainConn.Context.cs</LastGenOutput>
+      <DependentUpon>MainConn.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MainConn.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MainConn.edmx</DependentUpon>
+      <LastGenOutput>MainConn.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SubConn.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SubConn.edmx</DependentUpon>
+      <LastGenOutput>SubConn.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SubConn.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SubConn.edmx</DependentUpon>
+      <LastGenOutput>SubConn.cs</LastGenOutput>
+    </Content>
+    <Content Include="Design\TempModi\css\style.css.map" />
+    <Content Include="Design\TempModi\css\style.scss" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ControlController.cs" />
+    <Compile Include="Controllers\EditorController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\TemplateController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Conn.cs" />
+    <Compile Include="Models\employee.cs">
+      <DependentUpon>SubConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\license.cs">
+      <DependentUpon>MainConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainConn.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainConn.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainConn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainConn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainConn.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\order.cs">
+      <DependentUpon>SubConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orderdetail.cs">
+      <DependentUpon>SubConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pagestyle.cs">
+      <DependentUpon>SubConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\product.cs">
+      <DependentUpon>SubConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\restaurant.cs">
+      <DependentUpon>MainConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubConn.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubConn.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubConn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubConn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubConn.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>MainConn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\SHCList.cs" />
+    <Compile Include="ViewModels\ShoppingCartLoading.cs" />
+    <Compile Include="ViewModels\MailSender.cs" />
+    <Compile Include="ViewModels\DetailsLoading.cs" />
+    <Compile Include="ViewModels\OrdersLoading.cs" />
+    <Compile Include="ViewModels\ManagementLoading.cs" />
+    <Compile Include="ViewModels\ProductDescriptionLoading.cs" />
+    <Compile Include="ViewModels\TemplateLoading.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <EntityDeploy Include="Models\MainConn.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MainConn.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MainConn.edmx.diagram">
+      <DependentUpon>MainConn.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\SubConn.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SubConn.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SubConn.edmx.diagram">
+      <DependentUpon>SubConn.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Control\Index.cshtml" />
+    <Content Include="Views\Control\_AddRes.cshtml" />
+    <Content Include="Views\Template\Index.cshtml" />
+    <Content Include="Views\Login\FormMSender.cshtml" />
+    <Content Include="Views\Management\Index.cshtml" />
+    <Content Include="Views\Template\_TemLog.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Management\_EmpAdd.cshtml" />
+    <Content Include="Views\Management\_ProAdd.cshtml" />
+    <Content Include="Views\Management\IndexAlt.cshtml" />
+    <Content Include="Views\Management\_ProEdit.cshtml" />
+    <Content Include="Views\Management\_EmpEdit.cshtml" />
+    <Content Include="Views\Template\_ProDes.cshtml" />
+    <Content Include="Views\Order\_OrdEdit.cshtml" />
+    <Content Include="Views\Order\_OrdDet.cshtml" />
+    <Content Include="Views\Template\_ShCart.cshtml" />
+    <Content Include="Views\Editor\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53357</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53357/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

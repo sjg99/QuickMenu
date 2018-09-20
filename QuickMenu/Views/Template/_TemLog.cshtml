@@ -1,0 +1,21 @@
+﻿@model QuickMenu.Models.employee
+
+@using (Html.BeginForm("Confirm", "Template",new { id=ViewBag.rname}, FormMethod.Post))
+{
+    <Label class="lbl">Login</Label>
+    <form id="FormularioLogin">
+        <div class="ContFormLogin">
+            <div class="LoginCampos">
+
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "input-container", @placeholder = "Email", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.email)
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input-container", @placeholder = "Password", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.password)
+            </div>
+            <div class="LoginBotones">
+                <button type="submit" id="EnviaL">Login</button>
+            </div>
+            <div class="field-validation-error">@Html.DisplayFor(model => model.LoginError)</div>
+        </div>
+    </form>
+}

@@ -1,0 +1,314 @@
+/*###### Default ######*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background: url("img/bg.png");
+  /*background-color: #f3f3f3;*/
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.row::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+/*###### Header ######*/
+
+.Header{
+  width: 100%;
+}
+.Header nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #4a90e2;
+}
+.Header nav li{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.95em;
+  color: #fff;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+}
+
+.Header nav .Nombre{
+  padding: 10px 20px 10px 20px;
+  background-color: #142739;
+}
+.Header nav .Salir{
+  padding: 10px 20px 10px 20px;
+  color: #4a90e2;
+  margin: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.Header nav .Salir a {
+  text-decoration: none;
+  color: #4a90e2;
+}
+/*###### Add Del ######*/
+
+.AddDel{
+  display: flex;
+  float: right;
+}
+.AddDel .Add,
+.AddDel .Del{
+    background-color: #fff;
+  display: flex;
+  width: 100px;
+  padding: 8px 2px 8px 2px;
+  margin: 10px 10px 5px 10px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 1px 3px 0 rgba(0,0,0,.1);
+  border-radius: 4px;
+}
+.AddDel .Add, .AddDel .Del:hover{
+  cursor: pointer;
+}
+.AddDel .AddDelimg{
+  width: 15px;
+  height: 15px;
+  margin: auto;
+}
+.AddDel .AddDelT{
+  font-size: 0.79em;
+  margin: auto;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+/*###### Ventana Add ######*/
+
+.VentanaAdd {
+    position: fixed;
+    width: 45%;
+    height: 65%;
+    min-height: 200px;
+    left: 50%;
+    top: -100%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 1px 3px 0 rgba(0,0,0,.1);
+    font-size: 1.39em;
+    color: #fff;
+    display: flex;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    z-index: 3;
+}
+.contentform {
+    width: 43%;
+    border-radius: 5px 0 0 5px;
+    background-color: #F2F2F2;
+}
+
+.bugs {
+    color: #31BD87;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 35px;
+    padding-top: 77%;
+    text-align: center;
+}
+
+.txtlbl {
+    color: #333333;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 22px;
+    padding-top: 77%;
+    padding-left: 37%;
+}
+
+.formDomain {
+    background-color: #fff;
+    width: 65%;
+    border-radius: 0 5px 5px 0;
+    padding: 30px 28px;
+}
+
+.titlefield {
+    color: #333333;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    padding-bottom: 10%;
+}
+
+.formDomain .domain-container {
+    width: 90%;
+    padding: 18px;
+    border: none;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+}
+.field-validation-error {
+    text-align: center;
+    font-size: .875rem;
+    padding: 5%;
+    color: #f73131;
+    transition-duration: 0.3s;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+.btn-proceed {
+    background-color: #31BD87;
+    border: none;
+    width: 100%;
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 30%;
+}
+
+.btn-proceed:hover {
+    cursor: pointer;
+}
+/*###### Cards ######*/
+.ContenCards {
+    margin-top: 70px;
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.ContenCards .Card{
+    background-color: #fff;
+  width: 250px;
+  height: 300px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 1px 3px 0 rgba(0,0,0,.1);
+  border-radius: 5px;
+}
+.ContenCards .Card .Cardimg:hover{
+  cursor: pointer;
+  opacity: 0.79;
+}
+.ContenCards .Card .Cardimg{
+  background-image: url("img/card1.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  width: 250px;
+  height: 250px;
+}
+.ContenCards .Card .CardText{
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.ContenCards .Card .CardText Label{
+  margin-right: 30px;
+  font-size: 1.09em;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+.ContenCards .Card .CardText .CardEditName{
+  background-position: center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.ContenCards .Card .CardText .CardEditName img{
+  width: 25px;
+  height: 25px;
+  opacity: 0.7;
+}
+
+.ContenCards .Card .CardText .CardEditName:hover{
+  cursor: pointer;
+}
+.ContenCards .Card .CardDel{
+  opacity: 0;
+  background-image: url("img/delete2.png");
+  background-position: center;
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  transform: scaleY(0) translate(-50%, -50%);
+  transition-duration: 0.3s;
+}
+.ContenCards .Card .CardDel:hover{
+  cursor: pointer;
+}
+/*###### Mobile ######*/
+
+@media screen and (min-width: 1920px) {
+
+}
+@media screen and (max-width: 1919px) {
+
+}
+
+@media screen and (max-width: 1366px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 800px) {
+  .ContenCards{
+    justify-content: center;
+  }
+  .VentanaAdd form .Campos{
+    flex-direction: column;
+  }
+  .VentanaAdd form .DominioTexto{
+    margin: 7px 0px 7px 0px;
+  }
+  .VentanaAdd form .DominioLabel {
+    text-align: center;
+    margin: 7px 0px 7px 0px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .ContenCards{
+    justify-content: center;
+  }
+  .VentanaAdd{
+    width: 60%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .VentanaAdd form .Campos{
+    flex-direction: column;
+  }
+  .VentanaAdd form .DominioTexto{
+    margin: 7px 0px 7px 0px;
+  }
+  .VentanaAdd form .DominioLabel {
+    text-align: center;
+    margin: 7px 0px 7px 0px;
+  }
+}

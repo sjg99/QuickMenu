@@ -1,0 +1,26 @@
+﻿@model QuickMenu.ViewModels.ProductDescriptionLoading
+
+
+<div class="SeleccionInfo">
+    <img src="~/Design/Plantilla/img/pizza.jpg" width="40%">
+    <div class="SeleccionTextos">
+        @using (Ajax.BeginForm("AddShC","Template", new { id =  Model.rname},new AjaxOptions { UpdateTargetId="shc"}))
+        {
+        <h1>@Model.product.name</h1>
+        <p>@Model.product.details</p>
+        <p>$@Model.product.price</p>
+        @Html.HiddenFor(x => x.orddet.First().idproduct, new { Value = Model.product.idproduct })
+        @Html.EditorFor(x => x.orddet.First().quantity);
+        @Html.HiddenFor(x => x.orddet.First().totalprice, new { Value = Model.product.price })
+        @Html.HiddenFor(x => x.orddet.First().idorder, new { Value = 1})
+        <button class="SeleccionAgregar" onclick="cd()" type="submit">Add</button>
+        <script>
+            function cd() {                
+                $('.SeleccionArticulo').css('transform', 'scale(0,0)');
+            }
+        </script>
+        }
+    </div>
+</div>
+
+

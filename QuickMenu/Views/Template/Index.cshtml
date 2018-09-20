@@ -1,0 +1,111 @@
+﻿@model QuickMenu.ViewModels.TemplateLoading
+@{
+    Layout = null;    
+    ViewBag.rname = Model.rname;    
+    QuickMenu.Models.employee r = new QuickMenu.Models.employee();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.rname</title>
+    <link href="~/Design/Plantilla/main.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Design/Principal/img/main-ico.ico" />
+</head>
+<body>
+    <!--      nav-->
+    <div class="ScrollUp"></div>
+    <nav>
+        <div class="dropLogo"></div>
+        <div class="dropicon">&#9776;</div>
+        <ul class="Topnav" id="dropClick">
+            <li>
+                <a id="Home">HOME</a>
+            </li>
+            <li>
+                <a id="Map">MAP</a>
+            </li>
+            <li>
+                <a id="Menu">MENU</a>
+            </li>
+            <li>
+                <div id="Login" class="LoginBoton" href="#log-in">LOG IN</div>
+            </li>
+        </ul>
+    </nav>
+    <div class="Contenedor">
+        <div class="ContenedorPrincipal">
+            <!--    login y home-->
+            <section class="SeccionHome">
+                <div class="LoSiContenedor">
+                    <div class="Login">
+                        @{ Html.RenderPartial("_TemLog", r); }
+                    </div>
+                </div>
+                <div class="Background"></div>
+                <div class="ContenedorHome">
+                    <h1 class="TextoPrincipal">@Model.pagestyle.restaurantname</h1>
+                    <p class="TextoSecundario">Description example</p>
+                </div>
+            </section>
+            <!--    About-->
+            <section class="SeccionMap">
+                <div class="ContenedorMap">
+                    <h1>Where are we?</h1>
+                    <div id="googlemap" class="Map"></div>
+                </div>
+            </section>
+        </div>
+        <div class="ContenedorSecundario">
+
+            <!--    Menu-->
+
+            <section class="SeccionMenu Fondo">
+                <div class="ContenedorMenu">
+                    <div class="Carta">
+                        @foreach (var x in Model.products)
+                        {
+                            <div class="Articulo">
+                                @using (Ajax.BeginForm("DesPro",new { id = ViewBag.rname }, new AjaxOptions { UpdateTargetId = "prodes" }))
+                                {
+                                    @Html.HiddenFor(m => m.products.First().idproduct, new { Value = x.idproduct })
+                                    @Html.HiddenFor(m => m.products.First().name, new { Value = x.name })
+                                    @Html.HiddenFor(m => m.products.First().price, new { Value = x.price })
+                                    @Html.HiddenFor(m => m.products.First().details, new { Value = x.details })
+                                    <div class="artimage">
+                                        <button type="submit" style="opacity: 0;"><img src="~/Design/Plantilla/img/pizza.jpg" style="max-width: 250px;" /></button>
+                                    </div>
+                                    <p>@x.name</p>
+                                    <p>$@x.price</p>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="prodes" class="SeleccionArticulo">
+
+    </div>
+    <div class="ListaCompras">
+        <div class="UpIcon"></div>
+        <h1 class="ListaTitulo">Shopping Cart</h1>
+        <div class="ListaArticulos">
+            <div id="shc" class="ContenedorArticulo">
+                
+            </div>
+        </div>
+    </div>
+    <script src="~/Design/Plantilla/googemap.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4qYGIPRGZbpoGQpfiiDbnjjBxo4kBBco&callback=myMap"></script>
+    <script src="~/Design/Plantilla/jquery-3.3.1.min.js"></script>
+    <script src="~/Design/Plantilla/responsive.js"></script>
+    <script src="~/Design/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Design/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Design/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery-1.8.0.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</body>
+</html>

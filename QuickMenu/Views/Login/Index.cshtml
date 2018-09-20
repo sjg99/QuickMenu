@@ -1,0 +1,159 @@
+﻿@model QuickMenu.Models.user
+    @{
+        Layout = null;
+        QuickMenu.ViewModels.MailSender m = new QuickMenu.ViewModels.MailSender();
+    }
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>QuickMenu</title>        
+        <link href="~/Design/Principal/main.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="shortcut icon" href="~/Design/Principal/img/main-ico.ico" />
+    </head>
+    <body>
+        <!--      nav-->
+        <div class="ScrollUp"></div>
+        <nav>
+            <div class="dropLogo"></div>
+            <div class="dropicon">&#9776;</div>
+            <ul class="Topnav" id="dropClick">
+                <li>
+                    <a id="Home">HOME</a>
+                </li>
+                <li>
+                    <a id="About">ABOUT</a>
+                </li>
+                <li>
+                    <a id="Contact">CONTACT</a>
+                </li>
+                <li>
+                    <div id="Login" class="LoginBoton" href="#log-in">LOG IN</div>
+                </li>
+            </ul>
+        </nav>
+        <!--    login y home-->
+        <section class="SeccionHome">
+            <div class="LoSiContenedor">
+                <div class="Login">
+                    @using (Html.BeginForm("Confirm", "Login", FormMethod.Post))
+                {
+                    <Label class="lbl">Login</Label>
+                    <form id="FormularioLogin">
+                        <div class="ContFormLogin">
+                            <div class="LoginCampos">
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "input-container", @placeholder = "Email", @required = "required" } })
+                                @Html.ValidationMessageFor(model => model.email)
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input-container", @placeholder = "Password", @required = "required" } })
+                                @Html.ValidationMessageFor(model => model.password)
+                            </div>
+                            <div class="LoginBotones">
+                                <button type="submit" id="EnviaL">Login</button>
+                                <button type="button" class="SingUpBotton">Sign up</button>
+                            </div>
+                            <div class="field-validation-error">@Html.DisplayFor(model => model.LoginError)</div>
+                        </div>
+                    </form>
+            }
+                </div>
+                <div class="SingUp">
+                    @using (Html.BeginForm("Create", "Login", FormMethod.Post))
+                {
+                    <Label class="lbl ">Sing up</Label>
+                    <form id="FormularioSingup">
+                        <div class="ContFormSingup">
+                            <div class="SingupCampos">
+                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "input-container", @placeholder = "Name", @required = "required" } })
+                                @Html.ValidationMessageFor(model => model.name)
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "input-container", @placeholder = "Email", @required = "required" } })
+                                @Html.ValidationMessageFor(model => model.email)
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input-container", @placeholder = "Password", @required = "required" } })
+                                @Html.ValidationMessageFor(model => model.password)
+                            </div>
+                            <div class="SingupBotones">
+                                <button type="submit" id="EnviaS">Sing Up</button>
+                                <button type="button" class="CancelBotton">Cancel</button>
+                            </div>
+                            <div class="field-validation-error">@Html.DisplayFor(model => model.SingUpError)</div>
+                        </div>
+                    </form>
+            }
+                </div>
+            </div>
+            <div class="Background"></div>
+            <div class="ContenedorHome">
+                <h1 class="TextoPrincipal">Welcome to QuickMenu</h1>
+                <div class="BotonLogin">
+                    <a class="LoginBoton2">Log in</a>
+                </div>
+            </div>
+        </section>
+        <!--    About-->
+        <section class="SeccionAbout">
+            <div class="ContenedorAbout">
+                <div class="Fila">
+                    <div class="Columna">
+                        <div class="box">
+                            <div class="ContIconos">
+                                <img class="IconosExtremos" src="~/Design/Principal/img/Laptop.png">
+                            </div>
+                            <p class="ParrafoAbout">QuickMenu is a web-based plataform available in any device, developed for the management of food sites in employees and products related subjects besides web-ordering for the clients.</p>
+                        </div>
+                    </div>
+                    <div class="Columna">
+                        <div class="box">
+                            <div class="ContIconos">
+                                <img class="IconoMedio" src="~/Design/Principal/img/Cfg.png">
+                            </div>
+                            <p class="ParrafoAbout">QuickMenu gives you the opportunity to personalize your own website for everyone of your food sites, and allows you and your employees to service your clients easier.</p>
+                        </div>
+                    </div>
+                    <div class="Columna">
+                        <div class="box">
+                            <div class="ContIconos">
+                                <img class="IconosExtremos" src="~/Design/Principal/img/Clip.png">
+                            </div>
+                            <p class="ParrafoAbout">QuickMenu hopes to dominate the market of food sites websites, setting the standard for new and easy ways for people to enjoy their favorite food sites while being able to make the most of their mobile devices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--    Contact-->
+        <section class="SeccionContact row">
+            <div class="ContenedorContact col-6">
+                <div class="ContactIcon left-side">
+                    <Label class="con-tit">CONTACT</Label>
+                    <!--<p class="ContactText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                <hr>-->
+                </div>
+                <div class="ContactForm left-side">
+                    @{ Html.RenderPartial("FormMSender", m);}
+                </div>
+            </div>
+            <div id="googleMap" class="map-sec col-6 right-side">
+            </div>
+        </section>
+        <!--    footer -->
+        <footer class="foot-er">
+            <div class="row">
+                <div class="col-12">
+                    <label>Q</label>
+                    <p class="phrase">Whithout technology there's no future for humans.</p>
+                </div>
+            </div>
+            <hr class="Line">
+            <p class="rights">©2018 QuickMenu. All Rights Reserved.</p>
+        </footer>
+        <!--    js section -->
+        <script src="~/Design/Principal/jquery.js"></script>
+        <script src="~/Design/Principal/Re-Mobile.js"></script>
+        <script src="~/Design/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Design/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Design/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Design/Principal/map.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd6A0WEzizW2VEKtzkoL-xvl7KPCnRsNE&callback=myMap"></script>
+    </body>
+    </html>

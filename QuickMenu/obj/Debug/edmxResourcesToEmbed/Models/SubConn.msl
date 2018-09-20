@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quickmenusubModelStoreContainer" CdmEntityContainer="quickmenusubEntities">
+    <EntitySetMapping Name="employee">
+      <EntityTypeMapping TypeName="quickmenusubModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="position" ColumnName="position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order">
+      <EntityTypeMapping TypeName="quickmenusubModel.order">
+        <MappingFragment StoreEntitySet="order">
+          <ScalarProperty Name="idorder" ColumnName="idorder" />
+          <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+          <ScalarProperty Name="table" ColumnName="table" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product">
+      <EntityTypeMapping TypeName="quickmenusubModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="idproduct" ColumnName="idproduct" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="details" ColumnName="details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderdetail">
+      <EntityTypeMapping TypeName="quickmenusubModel.orderdetail">
+        <MappingFragment StoreEntitySet="orderdetail">
+          <ScalarProperty Name="idproduct" ColumnName="idproduct" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+          <ScalarProperty Name="idorder" ColumnName="idorder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pagestyle">
+      <EntityTypeMapping TypeName="quickmenusubModel.pagestyle">
+        <MappingFragment StoreEntitySet="pagestyle">
+          <ScalarProperty Name="restaurantname" ColumnName="restaurantname" />
+          <ScalarProperty Name="details" ColumnName="details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

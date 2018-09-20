@@ -1,0 +1,14 @@
+﻿@model QuickMenu.Models.restaurant
+
+@using (Html.BeginForm("AddRes", "Control", FormMethod.Post))
+{    
+<div>
+    <h2 class="titlefield">Create a Domain</h2>
+    <form class="Dnsform">
+        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Write your domain", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.name)
+    </form>
+    <button type="submit" id="Addr" class="btn-proceed">Proceed</button>
+    <div class="field-validation-error">@Html.DisplayFor(model => model.AddRError)</div>
+</div>
+}

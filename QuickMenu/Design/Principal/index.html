@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+      <title>QuickMenu</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+<!--      nav-->
+    <div class="ScrollUp"></div>
+    <nav>
+      <div class="dropLogo"></div>
+      <div class="dropicon">&#9776;</div>
+      <ul class="Topnav" id="dropClick">
+        <li>
+          <a id="Home">HOME</a>
+        </li>
+        <li>
+          <a id="About">ABOUT</a>
+        </li>
+        <li>
+          <a id="Contact">CONTACT</a>
+        </li>
+        <li>
+          <div id="Login" class="LoginBoton" href="#log-in">LOG IN</div>
+        </li>
+      </ul>
+    </nav>
+<!--    login y home-->
+    <section class="SeccionHome">
+      <div class="LoSiContenedor">
+        <div class="Login">
+          <Label class="lbl">Login</Label>
+          <form id="FormularioLogin">
+            <div class="ContFormLogin">
+              <div class="LoginCampos">
+                <input type="text" name="Nombre" value="Email" id="EmailL" class="input-container">
+                <input type="text" name="Asunto" value="Password" id="PassL" class="input-container">
+              </div>
+              <div class="LoginBotones">
+                <button type="submit" id="EnviaL">Login</button>
+                <button class="SingUpBotton">Sign up</button>
+              </div>
+              <div class="field-validation-error">Contraseña incorrecta</div>
+            </div>
+          </form> 
+        </div>
+        <div class="SingUp">
+            <Label class="lbl ">Sing up</Label>
+            <form id="FormularioSingup">
+            <div class="ContFormSingup">
+              <div class="SingupCampos">
+                <input type="text" name="Nombre" value="Email" id="EmailS" class="input-container">
+                <input type="text" name="Asunto" value="Password" id="PassS" class="input-container">
+                <input type="text" name="Asunto" value="Confirm Password" id="ConfPassS" class="input-container">
+              </div>
+              <div class="SingupBotones">
+                <button type="submit" id="EnviaS">Sing Up</button>
+                <button class="CancelBotton">Cancel</button>
+              </div>
+              <div class="ResultadoSingup">Registrado correctamente</div>
+            </div>
+          </form> 
+        </div>
+      </div>
+      <div class="Background"></div>
+      <div class="ContenedorHome">
+        <h1 class="TextoPrincipal">Welcome to QuickMenu</h1>
+        <div class="BotonLogin">
+          <a class="LoginBoton2">Log in</a>
+        </div>
+      </div>
+    </section>
+<!--    About-->
+    <section class="SeccionAbout">
+      <div class="ContenedorAbout">
+        <div class="Fila">
+          <div class="Columna">
+            <div class="box">
+              <div class="ContIconos">
+                <img class="IconosExtremos" src="img/Laptop.png">
+              </div>
+              <p class="ParrafoAbout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Thev Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Ouib Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>    
+            </div>
+          </div>
+          <div class="Columna">
+            <div class="box">
+              <div class="ContIconos">
+                <img class="IconoMedio" src="img/Cfg.png">
+              </div>
+              <p class="ParrafoAbout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Thev Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Ouib Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>  
+              <a href="#video" class="LearnMore">Learn More</a>
+            </div>
+          </div>
+          <div class="Columna">
+            <div class="box">
+              <div class="ContIconos">
+                <img class="IconosExtremos" src="img/Clip.png">
+              </div>
+              <p class="ParrafoAbout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Thev Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Ouib Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>    
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!--    Contact-->
+    <section class="SeccionContact row">
+      <div class="ContenedorContact col-6">
+        <div class="ContactIcon left-side">
+          <Label class="con-tit">CONTACT</Label>
+          <!--<p class="ContactText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+          <hr>-->
+        </div>
+        <div class="ContactForm left-side">
+          <form id="Formulario">
+            <div>
+              <input type="text" name="Nombre" placeholder="Name" id="Nombre" class="ContactItem">
+              <input type="text" name="Asunto" placeholder="Subject" id="Asunto" class="ContactItem">
+              <textarea rows="8" cols="50" id="Mensaje" name="Mensaje" form="Formulario" placeholder="Mensaje" class="ContactItem"></textarea>
+            </div>
+            <buttom type="submit" id="Envia" class="FormEnvia">Send the Message</buttom>
+          </form> 
+        </div>
+      </div>
+      <div id="googleMap" class="map-sec col-6 right-side">
+      </div>
+    </section>
+    <!--    footer -->
+    <footer class="foot-er">
+        <div class="row">
+          <div class="col-12">
+            <label >Q</label>
+            <p class="phrase">Whithout technology there's no future for humans.</p>
+          </div>
+        </div>
+        <hr class="Line">
+        <p class="rights">©2018 QuickMenu. All Rights Reserved.</p>
+    </footer>
+    <!--    js section -->
+    <script src="map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=
+    AIzaSyDd6A0WEzizW2VEKtzkoL-xvl7KPCnRsNE&callback=myMap"></script> 
+    <script src="jquery.js"></script>
+    <script src="Re-Mobile.js"></script>
+  </body>
+</html>

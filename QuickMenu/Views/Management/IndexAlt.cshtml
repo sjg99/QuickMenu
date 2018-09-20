@@ -1,0 +1,109 @@
+﻿@model QuickMenu.ViewModels.ManagementLoading
+@{
+    Layout = null;
+    if (Session["email"] == null)
+    {
+        Response.Redirect("~/Template/Index");
+    }
+    ViewBag.rname = Session["rname"];    
+    QuickMenu.Models.employee e = new QuickMenu.Models.employee();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/Design/ModuloGestion/css/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="shortcut icon" href="~/Design/ModuloGestion/img/store-ico.ico" />
+    <title>CPanel | @Session["rname"]</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="container">
+                    <img src="~/Design/ModuloGestion/img/store.png" />
+                </div>
+            </div>
+            <div class="perfil">
+                <div class="contenedor-prof">
+                    <p>@Session["name"]-@Session["position"]</p>
+                    <img src="~/Design/ModuloGestion/img/user.png" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="infoBar">
+        <div class="ajustes">
+            <h2>Settings</h2>
+        </div>
+        <div class="iconos">
+            <div class="cajaadd">
+                <img src="~/Design/ModuloGestion/img/add.png" />
+            </div>
+            <div class="cajas">
+                <img src="~/Design/ModuloGestion/img/cart.png" />
+            </div>
+        </div>
+    </main>
+    <div class="SectionAdd">
+        <div class="Ventana">
+            <!-- ventana de ajuste -->
+            <div id="AddWindow" class="VentanaAdd">                
+                  @{ Html.RenderPartial("_EmpAdd", e); }                    
+            </div>
+        </div>
+    </div>
+    <section class="contenedor-padre">
+        <div class="izq">
+            <div class="txtContenedor">
+                <h2>Modules</h2>
+                @Html.ActionLink("Products", "GetProducts")
+                @Html.ActionLink("Employees", "GetEmployees")
+                @Html.ActionLink("Orders", "GetOrders", "Order")
+                @Html.ActionLink("Editor", "Edit", "Editor")
+                <h2>Account</h2>
+                <a href="@Url.Action("LogOut", "Management", new { id = ViewBag.rname})">Logout</a>
+            </div>
+        </div>
+        <div class="derecha">
+            <div id="cards" class="contenedor">
+                @foreach (var x in Model.employees)
+    {
+            <div class="caja">
+                <div class="caja-1">
+                    <img src="~/Design/ModuloGestion/img/employee.png" />
+                </div>
+                <div class="caja-2">
+                    <div class="info">
+                        @using (Ajax.BeginForm("EditEmp", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
+    {
+                    @Html.HiddenFor(m => m.employees.First().email, new { Value = x.email })
+                    @Html.HiddenFor(m => m.employees.First().password, new { Value = x.password })
+                    @Html.HiddenFor(m => m.employees.First().name, new { Value = x.name })
+                    @Html.HiddenFor(m => m.employees.First().position, new { Value = x.position })
+                    <h3 class="titulo">@x.name</h3>
+                    <p>@x.position</p>                    
+                    <button class="edit" type="submit">Edit</button>
+}
+                    </div>
+                </div>
+            </div>
+}
+            </div>
+        </div>
+    </section>
+    <script src="~/Scripts/jquery-1.8.0.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Design/ModuloGestion/AddWindow.js"></script>
+    <script src="~/Design/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Design/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Design/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+
+</html>

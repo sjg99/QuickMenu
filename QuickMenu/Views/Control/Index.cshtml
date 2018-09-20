@@ -1,0 +1,84 @@
+﻿@model IEnumerable<QuickMenu.Models.restaurant>
+@{
+    Layout = null;
+    if (Session["email"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+    QuickMenu.Models.restaurant r = new QuickMenu.Models.restaurant();
+   }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>QuickMenu Panel</title>
+    <link href="~/Design/Control/main.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="shortcut icon" href="~/Design/Principal/img/main-ico.ico" />
+</head>
+<body>
+    <header class="Header">
+        <nav>
+            <li class="Nombre"><a>Mis sitios - @(Session["name"])</a></li>
+            <li class="Salir"><a href="@Url.Action("LogOut", "Login")">Sign out</a></li>
+        </nav>
+    </header>
+    <div class="AddDel">
+        <div class="Add">
+            <img class="AddDelimg" src="~/Design/Control/img/upload.png">
+            <a class="AddDelT">Add</a>
+        </div>
+        <div class="Del">
+            <img class="AddDelimg" src="~/Design/Control/img/delete.png">
+            <a class="AddDelT">Delete</a>
+        </div>
+    </div>
+    <!--    add-->
+    <div class="SectionHome">
+        <div class="Ventana">
+            <!-- ventana de ajuste -->
+            <div class="VentanaAdd">
+                <div class="contentform">
+                    <h2 class="bugs">$39</h2>
+                    <label class="txtlbl">Buy now</label>
+                </div>
+                <div class="formDomain">
+                    @{ Html.RenderPartial("_AddRes", r); }
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <section class="ContenCards">
+            @foreach (var x in Model)
+        {
+            <div class="Card">
+                @using (Html.BeginForm("DelRes", "Control", new { name = x.name }, FormMethod.Post))
+            {
+                <div class="CardDel">
+                    <button type="submit" style="opacity: 0;"><img src="~/Design/Control/img/delete2.png" style="max-width: 35px;" /></button>
+                </div>
+        }
+                @using (Html.BeginForm("ToRes", "Control", new { name = x.name }, FormMethod.Post))
+            {
+                <div class="Cardimg">
+                    <button type="submit" style="opacity: 0;"><img src="~/Design/Control/img/card1.jpg" style="max-width: 250px;" /></button>
+                </div>
+        }
+                <div class="CardText">
+                    <Label>@x.name</Label>
+                    <div class="CardEditName">
+                        <img src="~/Design/Control/img/edit.png">
+                    </div>
+                </div>
+            </div>
+    }
+        </section>
+        <script src="~/Design/Control/jquery-3.3.1.min.js"></script>
+        <script src="~/Design/Control/responsive.js"></script>       
+        <script src="~/Design/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Design/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Design/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
